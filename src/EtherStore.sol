@@ -8,6 +8,7 @@ contract EtherStore {
         balances[msg.sender] += msg.value;
     }
 
+    // TODO: audit
     function withdraw() public {
         uint256 bal = balances[msg.sender];
         require(bal > 0);
