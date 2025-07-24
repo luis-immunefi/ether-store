@@ -13,7 +13,7 @@ contract EtherStore {
         require(bal > 0);
 
         (bool sent,) = msg.sender.call{value: bal}("");
-        require(sent, "Failed to send Ether");
+        require(sent, "Failed to send Ether :(");
 
         balances[msg.sender] = 0;
     }
