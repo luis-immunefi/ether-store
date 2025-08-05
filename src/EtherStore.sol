@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// TODO: audit me :D
 pragma solidity ^0.8.26;
 
 contract EtherStore {
