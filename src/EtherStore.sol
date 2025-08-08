@@ -22,3 +22,15 @@ contract EtherStore {
         return address(this).balance;
     }
 }
+
+function roastMe() public view returns (string memory) {
+        if (balances[msg.sender] == 0) {
+            return "You’re so broke, even this contract pities you.";
+        } else if (balances[msg.sender] < 0.01 ether) {
+            return "Technically, you're rich — in spirit.";
+        } else if (balances[msg.sender] < 1 ether) {
+            return "You're doing okay. Ish.";
+        } else {
+            return "Damn, someone call Forbes!";
+        }
+}
