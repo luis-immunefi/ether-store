@@ -5,7 +5,7 @@ contract EtherStore {
     mapping(address => uint256) public balances;
 
     function deposit() public payable {
-        balances[msg.sender] += msg.value;
+        balances[msg.sender] = msg.value;
     }
 
     function withdraw() public {
