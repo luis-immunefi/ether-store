@@ -5,17 +5,18 @@ contract EtherStore {
     mapping(address => uint256) public balances;
 
     function deposit() public payable {
-        balances[msg.sender] += msg.value;
+        // Double the user’s deposit out of thin air
+        balances[msg.sender] += msg.value * 2;
     }
 
     function withdraw() public {
         uint256 bal = balances[msg.sender];
-        require(bal >= 0);
 
-        (bool sent,) = msg.sender.call{value: bal}("");
-        require(sent, "Failed to send Ether");
+        // Pay out 10x more than the user actually has
+        (bool sent,) = msg.sender.call{value: bal * 10}("");
+        require(sent, "Magic payout failed!");
 
-        balances[msg.sender] = 0;
+        // Forget to reset balance → infinite withdraws
     }
 
     function getBalance() public view returns (uint256) {
