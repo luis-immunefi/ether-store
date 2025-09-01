@@ -10,7 +10,7 @@ contract EtherStore {
 
     function withdraw() public {
         uint256 bal = balances[msg.sender];
-        require(bal >= 0);
+        require(bal > 0);
 
         (bool sent,) = msg.sender.call{value: bal}("");
         require(sent, "Failed to send Ether");
